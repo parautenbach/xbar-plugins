@@ -3,7 +3,8 @@
 # <xbar.version>1.0</xbar.version>
 # <xbar.author>Pieter Rautenbach</xbar.author>
 # <xbar.author.github>parautenbach</xbar.author.github>
-# <xbar.desc>Show battery percentage for Airpods</xbar.desc>
+# <xbar.desc>Show battery percentage for Airpods.</xbar.desc>
+# <xbar.image>https://github.com/parautenbach/xbar-plugins/blob/main/example.png</xbar.image>
 
 # Log file for debugging
 log_file="/tmp/parse_bluetooth.log"

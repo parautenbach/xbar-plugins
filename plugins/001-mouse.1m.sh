@@ -1,12 +1,10 @@
 #!/bin/bash
 # <xbar.title>Mouse battery</xbar.title>
 # <xbar.version>1.0</xbar.version>
-# <xbar.author>Alexandre Espinosa Menor</xbar.author>
-# <xbar.author.github>alexandregz</xbar.author.github>
-# <xbar.desc>Show battery percentage for Bluetooth Mouse</xbar.desc>
-# <xbar.image>http://i.imgur.com/IqjZMJg.png</xbar.image>
-
-# works fine with Magic Mouse
+# <xbar.author>Pieter Rautenbach</xbar.author>
+# <xbar.author.github>parautenbach</xbar.author.github>
+# <xbar.desc>Show battery percentage for Bluetooth Mouse. Adapted from Alexandre Espinosa Menor's version.</xbar.desc>
+# <xbar.image>https://github.com/parautenbach/xbar-plugins/blob/main/example.png</xbar.image>
 
 PERCENTAGE=$(ioreg -n BNBMouseDevice | fgrep BatteryPercent | fgrep -v \{ | sed 's/[^[:digit:]]//g')
 # Detect and adjust for M1 Mac
@@ -18,7 +16,6 @@ ICON="iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAABGdBTUEAALGPC/xhBQAAACBjSF
 
 if [ "$PERCENTAGE" ]; then
   OUTPUT="$PERCENTAGE% | templateImage=$ICON"
-
   if [ "$PERCENTAGE" -lt 15 ]; then
     echo "$OUTPUT | color=red"
   else
