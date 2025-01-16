@@ -6,7 +6,7 @@
 # <xbar.desc>Show battery percentage for Bluetooth Keyboard. Adapted from Alexandre Espinosa Menor's version.</xbar.desc>
 # <xbar.image>https://github.com/parautenbach/xbar-plugins/blob/main/example.png</xbar.image>
 
-PERCENTAGE=$(ioreg -n BNBKeyboardDevice | fgrep BatteryPercent | fgrep -v \{ | sed 's/[^[:digit:]]//g')
+PERCENTAGE=$(ioreg -n BNBMouseDevice | fgrep BatteryPercent | fgrep -v \{ | sed 's/[^[:digit:]]//g')
 # Detect and adjust for M1 Mac
 if [[ $(uname -m) == 'arm64' ]]; then
   PERCENTAGE=$(ioreg -c AppleDeviceManagementHIDEventService -r -l | grep -i keyboard -A 20  | grep BatteryPercent | cut -d = -f2 | cut -d ' ' -f2)
@@ -17,7 +17,7 @@ ICON="iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAABGdBTUEAALGPC/xhBQAAACBjSF
 if [ "$PERCENTAGE" ]; then
   OUTPUT="$PERCENTAGE% | templateImage=$ICON"
   if [ "$PERCENTAGE" -lt 15 ]; then
-    echo "$OUTPUT | color=red"
+    echo "$OUTPUT color=red"
   else
     echo "$OUTPUT"
   fi

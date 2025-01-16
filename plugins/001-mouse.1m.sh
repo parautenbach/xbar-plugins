@@ -17,7 +17,7 @@ ICON="iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAYAAAAehFoBAAAABGdBTUEAALGPC/xhBQAAACBjSF
 if [ "$PERCENTAGE" ]; then
   OUTPUT="$PERCENTAGE% | templateImage=$ICON"
   if [ "$PERCENTAGE" -lt 15 ]; then
-    echo "$OUTPUT | color=red"
+    echo "$OUTPUT color=red"
   else
     echo "$OUTPUT"
   fi
